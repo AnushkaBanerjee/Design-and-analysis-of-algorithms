@@ -8,8 +8,35 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//Sorting algorithm
+void sort(int arr[],int size){
+    for(int i = 0;i < size;i++){
+        for (int j = 0; j < size-i-1; j++)
+        {
+            /* code */
+            if(arr[j]>arr[j+1]){
+                int tmp = arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=tmp;
+            }
+        }
+
+
+     }
+}
+
+
 //binary search function
 int binarySearch(int arr[],int size,int item){
+         sort(arr,size);//sort the array if not sorted
+
+    //     //printing the sorted array
+    //     printf("\nThe sorted array is:");
+    //     for(int i = 0;i < size;i++){
+    //     printf("%d\n",arr[i]);
+    //  }
+
+
     int lb = 0,up = size - 1,mid,pos;
 
     mid = (lb+((up - lb)/2));
@@ -45,22 +72,22 @@ return -1;
 }
 
 
-//Sorting algorithm
-void sort(int arr[],int size){
-    for(int i = 0;i < size;i++){
-        for (int j = 0; j < size-i-1; j++)
-        {
-            /* code */
-            if(arr[j]>arr[j+1]){
-                int tmp = arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=tmp;
-            }
-        }
-        
+// //Sorting algorithm
+// void sort(int arr[],int size){
+//     for(int i = 0;i < size;i++){
+//         for (int j = 0; j < size-i-1; j++)
+//         {
+//             /* code */
+//             if(arr[j]>arr[j+1]){
+//                 int tmp = arr[j];
+//                 arr[j]=arr[j+1];
+//                 arr[j+1]=tmp;
+//             }
+//         }
 
-    }
-}
+
+//     }
+// }
 
 
 //The main function
@@ -87,11 +114,10 @@ scanf("%d",&choice);
 printf("\n----------------------Menu------------------------------\n");
 
 
-/*int f_1,f_2;
+int f_1,f_2;
+// f_1 = linearSearch(ptr,n,element);
+// f_2 = binarySearch(ptr,n,element);
 
-f_1 = linearSearch(ptr,n,element);
-f_2 = binarySearch(ptr,n,element);
-*/
 
 
 //Menu
@@ -99,11 +125,11 @@ switch (choice)
 {
 case 1:
     /* linear search */
-    linearSearch(ptr,n,element);//call linearSearch function 
-    int f_1;
-
-    f_1 = linearSearch(ptr,n,element);
+    // linearSearch(ptr,n,element);//call linearSearch function 
     
+
+     f_1 = linearSearch(ptr,n,element);
+
 
     if(f_1 == -1){
         printf("\nElement absent!!\n");
@@ -114,22 +140,28 @@ case 1:
     break;
 case 2:
     /* binary search */
-    sort(ptr,n);//sort the array if not sorted
-    
+    // sort(ptr,n);//sort the array if not sorted
+
     //print the sorted array
 
-    printf("\nThe sorted array is:");
-    for(int i = 0;i < n;i++){
-        printf("\t%d\n",ptr[i]);
-    }
+    // printf("\nThe sorted array is:");
+    // for(int i = 0;i < n;i++){
+    //     printf("\t%d\n",ptr[i]);
+    // }
 
-    binarySearch(ptr,n,element);//call binarySearch function
-
-
-    int f_2;
+     binarySearch(ptr,n,element);//call binarySearch function
 
 
-    f_2 = binarySearch(ptr,n,element);
+    
+
+
+     f_2 = binarySearch(ptr,n,element);
+
+    //  printf("\nThe sorted array is:");
+    // for(int i = 0;i < n;i++){
+    //     printf("%d\n",ptr[i]);
+    // }
+
 
     if(f_2 == -1){
         printf("\nElement absent!!\n");
